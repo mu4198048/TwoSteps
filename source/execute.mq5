@@ -25,6 +25,9 @@ void OnDeinit(const int reason){
         if(reason == REASON_ACCOUNT){reasonForCalled = "Another account has been activated or reconnection to the trade server has occurred due to changes in the account settings";}
     }
     ObjectsDeleteAll(0, 0, OBJ_BUTTON);
+    for(int iCount=0; iCount<ArraySize(trendLinesName); iCount++){
+        ObjectDelete(0, trendLinesName[iCount]);
+    }
     Comment("");
     ChartRedraw(0);
 }

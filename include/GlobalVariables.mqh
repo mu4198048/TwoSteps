@@ -35,15 +35,19 @@ string trendLinesName[14] = {
     "buy entry", "sell entry", "lc line", "tp line",
     "break buy", "break sell", "break buy lc", "break buy tp", "break sell lc", "break sell tp"
 };
-enum OrderType{BUY, SELL, BREAK};
+enum OrderType{REST, BUY, SELL, BREAK, DYNAMIC};
 OrderType Enum_OrderType;
 
 string _symbol;
 string _broker;
 int _digits;
 int _period;
+double convertPipsToPrice;
+//!=================for preparation=================
 string preparationOrderType;
 double targetRrRate;
+bool firstStepDone;
+//!=================for preparation=================
 
 bool printOrderInfo(){return true;}
 #endif

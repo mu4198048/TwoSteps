@@ -39,6 +39,18 @@ void getMagicNumber(string broker){
         ExpertRemove();
     }
 }
+void getCPTP(){
+    if(_symbol == "XAUUSD"){convertPipsToPrice = 0.1;}else{
+        int notice = MessageBox(
+            StringFormat("This pair '%s' is not supported.", _symbol) + "\n" +
+            "Please register the broker to the source code to continue." + "\n" +
+            StringFormat("Edit ======> %s, %d", __FILE__, __LINE__),
+            "NOTICE",
+            MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1
+        );
+        ExpertRemove();
+    }
+}
 void settingChart(string symbol){
     double hundredPipDigits = 0.0;
     if(symbol == "GBPJPY" || symbol == "USDJPY"){hundredPipDigits = 1.0;}else
@@ -106,5 +118,13 @@ void createTrendLine(string name, double price_1, double price_2, int lineColor,
     if(!visible){
         ObjectSet(name, OBJPROP_TIMEFRAMES, OBJ_NO_PERIODS);
     }
+}
+void MsgError(string file, int line){
+    int notice = MessageBox(
+        "Error" + "\n" +
+        StringFormat("Edit ======> %s, %d", file, line),
+        "NOTICE",
+        MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1
+    );
 }
 #endif

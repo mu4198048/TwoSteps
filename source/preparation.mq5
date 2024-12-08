@@ -10,6 +10,14 @@
 int OnInit(){
     settingChart(Symbol());
     targetRrRate = 0.45;
+    firstStepDone = false;
+    _digits = Digits();
+    _symbol = Symbol();
+    preparationGui();
+    getCPTP();
+    for(int iCount=0; iCount<ArraySize(trendLinesName); iCount++){
+        ObjectDelete(0, trendLinesName[iCount]);
+    }
     return(INIT_SUCCEEDED);
 }
 void OnDeinit(const int reason){
